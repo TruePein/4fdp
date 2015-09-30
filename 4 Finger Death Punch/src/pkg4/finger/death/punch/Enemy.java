@@ -10,9 +10,9 @@ package pkg4.finger.death.punch;
  * @author Eric
  */
 public class Enemy {
-    private int type;
+    private Constants.Enemies.Type type;
     
-    public Enemy(int t){
+    public Enemy(Constants.Enemies.Type t){
         type = t;
     }
 }

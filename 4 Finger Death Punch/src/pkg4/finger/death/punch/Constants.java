@@ -11,7 +11,7 @@ package pkg4.finger.death.punch;
  */
 public class Constants {
 
-    protected class Abilities {
+    protected static class Abilities {
 
         //ability status
         protected class AbilityStatus {
@@ -20,20 +20,20 @@ public class Constants {
             public static final int EQUIPED = 2;
         }
         //ability names
-        protected class AbilityNames {
-            public static final int EXTRA_PROJECTILES = 0;
-            public static final int EXTENDED_WEAPON_USE = 1;
-            public static final int EXTENDED_RANGE = 2;
-            public static final int HEAL = 3;
-            public static final int DEFLECT_GREY = 4;
-            public static final int DEFLECT_COLOR = 5;
-            public static final int RAIN_WEAPONS = 6;
-            public static final int SLOW_ENEMIES = 7;
-            public static final int SLOW_ASSAULT = 8;
-            public static final int SHOCKWAVE = 9;
-            public static final int DEEP_IMPACT = 10;
-            public static final int GREY_OUT = 11;
-            public static final int SLOW_MOTION = 12;
+        protected enum AbilityNames {
+            EXTRA_PROJECTILES,
+            EXTENDED_WEAPON_USE,
+            EXTENDED_RANGE,
+            HEAL,
+            DEFLECT_GREY,
+            DEFLECT_COLOR,
+            RAIN_WEAPONS,
+            SLOW_ENEMIES,
+            SLOW_ASSAULT,
+            SHOCKWAVE,
+            DEEP_IMPACT,
+            GREY_OUT,
+            SLOW_MOTION
         }
         //ability cooldowns
         protected class AbilityCooldowns{
@@ -54,31 +54,31 @@ public class Constants {
         public static final int NUM_OF_ABILITIES = 11;
     }
     
-    protected class Enemies{
-        protected class Type{
-            public static final int GREY = 0;
-            public static final int THROWER = 1;
-            public static final int COLORED = 2;
-            public static final int BRAWLER = 3;
+    protected static class Enemies{
+        protected enum Type{
+            GREY,
+            THROWER,
+            COLORED,
+            BRAWLER
         }
     }
     
-    protected class Directions{
-        public static final int UP = 0;
-        public static final int RIGHT = 1;
-        public static final int DOWN = 2;
-        public static final int LEFT = 3;
+    protected enum Directions{
+        UP,
+        DOWN,
+        LEFT,
+        RIGHT
     }
     
-    protected class Stages{
-        protected class Type{
-            public static final int MOB = 0;
-            public static final int SPEED = 1;
-            public static final int PROJECTILE = 2;
-            public static final int DEFENDER = 3;
-            public static final int MULTI = 4;
-            public static final int INFINITE = 5;
-            public static final int BOSS = 6;
+    protected static class Stages{
+        protected enum Type{
+            MOB,
+            SPEED,
+            PROJECTILE,
+            DEFENDER,
+            MULTI,
+            INFINITE,
+            BOSS
         }
     }
 }

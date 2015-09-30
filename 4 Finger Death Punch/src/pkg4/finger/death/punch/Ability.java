@@ -10,12 +10,12 @@ package pkg4.finger.death.punch;
  * @author Eric
  */
 public class Ability {
-    private final int ID;
+    private final Constants.Abilities.AbilityNames ID;
     private final int COOLDOWN;
     private int turnsUntilUse;
     private final boolean ACTIVATE_INSTANTLY;
     
-    public Ability(int id, int cd, boolean ai){
+    public Ability(Constants.Abilities.AbilityNames id, int cd, boolean ai){
         ID = id;
         COOLDOWN = cd;
         turnsUntilUse = cd;
@@ -39,7 +39,7 @@ public class Ability {
         return turnsUntilUse;
     }
     
-    public int getID(){
+    public Constants.Abilities.AbilityNames getID(){
         return ID;
     }
 }

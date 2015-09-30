@@ -24,7 +24,7 @@ public class ActiveAbilities {
      * @param p Assumed to be a constant already predefined.
      * @return 
      */
-    public boolean hasPower(int p){
+    public boolean hasPower(Constants.Abilities.AbilityNames p){
         for(Ability a: activeAbilities){
             if(a.getID()==p){
                 return true;

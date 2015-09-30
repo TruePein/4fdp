@@ -93,7 +93,7 @@ public class Player {
     public boolean infiniteWeapon(){
         return weapon==-1;
     }
-    public boolean hasPower(int p){
+    public boolean hasPower(Constants.Abilities.AbilityNames p){
         return abilities.hasPower(p);
     }
 }
