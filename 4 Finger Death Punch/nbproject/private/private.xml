@@ -3,16 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Eric/Documents/NetBeansProjects/4%20Finger%20Death%20Punch/src/pkg4/finger/death/punch/ActiveAbilities.java</file>
-            <file>file:/C:/Users/Eric/Documents/NetBeansProjects/4%20Finger%20Death%20Punch/src/pkg4/finger/death/punch/Player.java</file>
-            <file>file:/C:/Users/Eric/Documents/NetBeansProjects/4%20Finger%20Death%20Punch/src/pkg4/finger/death/punch/MainScreen.java</file>
-            <file>file:/C:/Users/Eric/Documents/NetBeansProjects/4%20Finger%20Death%20Punch/src/pkg4/finger/death/punch/Abilities.java</file>
-            <file>file:/C:/Users/Eric/Documents/NetBeansProjects/4%20Finger%20Death%20Punch/src/pkg4/finger/death/punch/Level.java</file>
-            <file>file:/C:/Users/Eric/Documents/NetBeansProjects/4%20Finger%20Death%20Punch/src/pkg4/finger/death/punch/Enemy.java</file>
-            <file>file:/C:/Users/Eric/Documents/NetBeansProjects/4%20Finger%20Death%20Punch/src/pkg4/finger/death/punch/Constants.java</file>
-            <file>file:/C:/Users/Eric/Documents/NetBeansProjects/4%20Finger%20Death%20Punch/src/pkg4/finger/death/punch/StartPanel.java</file>
-            <file>file:/C:/Users/Eric/Documents/NetBeansProjects/4%20Finger%20Death%20Punch/src/pkg4/finger/death/punch/Ability.java</file>
-            <file>file:/C:/Users/Eric/Documents/NetBeansProjects/4%20Finger%20Death%20Punch/src/pkg4/finger/death/punch/FingerDeathPunch.java</file>
+            <file>file:/C:/Users/stone/OneDrive/Documents/GitHub/4fdp/4%20Finger%20Death%20Punch/src/player/abilities/ActiveAbilities.java</file>
+            <file>file:/C:/Users/stone/OneDrive/Documents/GitHub/4fdp/4%20Finger%20Death%20Punch/src/player/abilities/A_ExtraProjectiles.java</file>
+            <file>file:/C:/Users/stone/OneDrive/Documents/GitHub/4fdp/4%20Finger%20Death%20Punch/src/player/Player.java</file>
+            <file>file:/C:/Users/stone/OneDrive/Documents/GitHub/4fdp/4%20Finger%20Death%20Punch/src/stages/Stage.java</file>
+            <file>file:/C:/Users/stone/OneDrive/Documents/GitHub/4fdp/4%20Finger%20Death%20Punch/src/player/abilities/A_ExtendedRange.java</file>
+            <file>file:/C:/Users/stone/OneDrive/Documents/GitHub/4fdp/4%20Finger%20Death%20Punch/src/main/Constants.java</file>
+            <file>file:/C:/Users/stone/OneDrive/Documents/GitHub/4fdp/4%20Finger%20Death%20Punch/src/player/abilities/A_Heal.java</file>
+            <file>file:/C:/Users/stone/OneDrive/Documents/GitHub/4fdp/4%20Finger%20Death%20Punch/src/player/abilities/A_ExtendedWeaponUse.java</file>
+            <file>file:/C:/Users/stone/OneDrive/Documents/GitHub/4fdp/4%20Finger%20Death%20Punch/src/player/abilities/Ability.java</file>
+            <file>file:/C:/Users/stone/OneDrive/Documents/GitHub/4fdp/4%20Finger%20Death%20Punch/src/enemies/Enemy_Brawler.java</file>
+            <file>file:/C:/Users/stone/OneDrive/Documents/GitHub/4fdp/4%20Finger%20Death%20Punch/src/stages/EnemySpawn.java</file>
+            <file>file:/C:/Users/stone/OneDrive/Documents/GitHub/4fdp/4%20Finger%20Death%20Punch/src/enemies/Enemy.java</file>
+            <file>file:/C:/Users/stone/OneDrive/Documents/GitHub/4fdp/4%20Finger%20Death%20Punch/src/enemies/Enemy_Boss.java</file>
+            <file>file:/C:/Users/stone/OneDrive/Documents/GitHub/4fdp/4%20Finger%20Death%20Punch/src/enemies/Enemy_Colored.java</file>
         </group>
     </open-files>
 </project-private>
