@@ -16,7 +16,7 @@ public class Enemy_Brawler extends Enemy {
     private ArrayList<ArrayList<Integer>> moves;
 
     public Enemy_Brawler(ArrayList<ArrayList<Integer>> m) {
-        super(Type.BRAWLER);
+        super(Type.BRAWLER,1);
         moves = new ArrayList<>();
         for (ArrayList<Integer> a : m) {
             ArrayList temp = new ArrayList();

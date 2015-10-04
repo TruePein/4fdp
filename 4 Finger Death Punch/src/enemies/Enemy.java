@@ -11,17 +11,71 @@ package enemies;
  */
 public class Enemy {
 
+    /**
+     *
+     */
     protected enum Type {
 
         GREY,
         THROWER,
+        SPRINTER,
         COLORED,
         BRAWLER,
         BOSS
     }
+    /**
+     *
+     */
     private Type type;
+    /**
+     *
+     */
+    private int x;
+    /**
+     *
+     */
+    private int y;
+    /**
+     *
+     */
+    private float dx;
+    /**
+     *
+     */
+    private float dy;
+    /**
+     *
+     */
+    private player.Player target;
+    /**
+     *
+     */
+    private int speed;
 
-    public Enemy(Type t) {
+    /**
+     *
+     * @param t
+     * @param s
+     */
+    public Enemy(Type t, int s) {
         type = t;
+        speed = s;
+    }
+
+    /**
+     *
+     */
+    public void move() {
+        int xDiff = x - target.getX();
+        int yDiff = y - target.getY();
+    }
+
+    /**
+     *
+     * @param x
+     * @param y
+     */
+    public void move(int x, int y) {
+
     }
 }

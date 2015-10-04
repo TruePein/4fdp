@@ -15,7 +15,7 @@ import javax.swing.*;
  *
  * @author Eric
  */
-public class MainScreen extends JFrame{
+public class MainScreen extends JFrame {
 
     public MainScreen() {
         super("4 Finger Death Punch");
@@ -26,32 +26,77 @@ public class MainScreen extends JFrame{
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
         insets = getInsets();
-        setSize(insets.left+wWidth+insets.right, insets.top+wHeight+insets.bottom);
+        setSize(insets.left + wWidth + insets.right, insets.top + wHeight + insets.bottom);
         add(new StartPanel(this));
 //        addKeyListener(this);
     }
-    
+    /**
+     *
+     */
     private int fps;
+    /**
+     *
+     */
     private int wWidth;
+    /**
+     *
+     */
     private int wHeight;
+    /**
+     *
+     */
     private BufferedImage backBuffer;
+    /**
+     *
+     */
     private Insets insets;
+    /**
+     *
+     */
     private KeyInput input;
-    
-    public void run(){
+
+    /**
+     *
+     */
+    public void run() {
         initialize();
     }
-    
-    public void initialize(){
+
+    /**
+     *
+     */
+    public void initialize() {
         backBuffer = new BufferedImage(wWidth, wHeight, BufferedImage.TYPE_INT_RGB);
-        input=new KeyInput(this);
+        input = new KeyInput(this);
     }
-    
-    public void update(){
-        
+
+    /**
+     *
+     */
+    public void update() {
+
     }
-    
-    public void draw(){
-        
+
+    /**
+     *
+     */
+    public void draw() {
+
+    }
+
+    /**
+     *
+     * @return
+     */
+    public int getMiddleX() {
+        return getWidth() / 2;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public int getMiddleY() {
+        return getHeight() / 2;
     }
 }

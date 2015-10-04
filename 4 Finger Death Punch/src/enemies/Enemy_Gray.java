@@ -12,6 +12,6 @@ package enemies;
 public class Enemy_Gray extends Enemy {
 
     public Enemy_Gray() {
-        super(Type.GREY);
+        super(Type.GREY,1);
     }
 }

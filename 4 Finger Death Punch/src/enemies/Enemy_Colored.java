@@ -12,7 +12,7 @@ package enemies;
 public class Enemy_Colored extends Enemy {
 
     public Enemy_Colored(int h, Directions[] o) {
-        super(Type.COLORED);
+        super(Type.COLORED,1);
         hits = hitsLeft = h;
         order = new Directions[o.length];
         System.arraycopy(o, 0, order, 0, o.length);

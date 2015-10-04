@@ -12,6 +12,6 @@ package enemies;
 public class Enemy_Thrower extends Enemy {
 
     public Enemy_Thrower() {
-        super(Type.THROWER);
+        super(Type.THROWER,1);
     }
 }

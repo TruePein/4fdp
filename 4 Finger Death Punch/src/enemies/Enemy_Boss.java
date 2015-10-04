@@ -12,7 +12,7 @@ package enemies;
 public class Enemy_Boss extends Enemy{
     
     public Enemy_Boss(Enemy_Colored[] s){
-        super(Type.BOSS);
+        super(Type.BOSS,1);
     }
     private int totalHealth;
     private Enemy_Colored[] stages;
