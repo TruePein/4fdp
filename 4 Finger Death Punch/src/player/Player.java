@@ -16,6 +16,11 @@ import player.abilities.Ability;
 public class Player {
 
     /**
+     * Boolean for knowing when the player is busy in an animation. If the
+     * player is busy, no other input will be accepted.
+     */
+    private boolean busy;
+    /**
      *
      */
     private static int health;
@@ -72,6 +77,7 @@ public class Player {
         mainScreen = ms;
         X = ms.getMiddleX();
         Y = ms.getMiddleY();
+        busy = false;
     }
 
     /**
@@ -199,8 +205,8 @@ public class Player {
      * Returns whether or not the player has the specified ability in its
      * ActiveAbilites set.
      *
-     * @param p AbilityName The name of the ability that is being looked for.
-     * It is an enumerated value.
+     * @param p AbilityName The name of the ability that is being looked for. It
+     * is an enumerated value.
      * @return true - if the player has the specified ability in its
      * ActiveAbilites set.
      */

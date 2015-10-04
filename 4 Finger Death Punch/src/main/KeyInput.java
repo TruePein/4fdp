@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package main;
 
 import java.awt.Component;
@@ -10,14 +5,17 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 /**
+ * A custom KeyListener that can tell which keys are up, down, and have been
+ * hit. It can also tell if any keys are currently pressed as well as save the
+ * last KeyEvent.
  *
  * @author stone
  */
 public class KeyInput implements KeyListener {
 
     /**
-     * Holds an array of all the keys that are released. When they get
-     * released,the value at the corresponding key code is set to false.
+     * Holds an array of all the keys that are released. When they get released,
+     * the value at the corresponding key code is set to true.
      */
     private boolean[] keyReleased;
     /**
@@ -28,9 +26,15 @@ public class KeyInput implements KeyListener {
     private boolean[] keyPressed;
     /**
      * Holds an array of all keys that have been hit. A single hit counts as a
-     * press that hasn't been released.
+     * press that hasn't been released. Right after a key is pressed, the value
+     * at the corresponding key code is set to true, but after it is read, it is
+     * set to false until the next press.
      */
     private boolean[] keyHit;
+    /**
+     * Holds the information of the last key pressed.
+     */
+    private KeyEvent lastKeyPressed;
 
     /**
      * Constructor for the KeyInput object. Assigns this object as the
@@ -106,8 +110,9 @@ public class KeyInput implements KeyListener {
 
     /**
      * The method that is called when a key is pressed. It sets the
-     * corresponding value in keyPressed to true, and on the first key hit, the
-     * value in keyReleased and keyHit to false ant true respectively.
+     * corresponding value in {@link #keyPressed} to true, and on the first key
+     * hit, the value in {@link #keyReleased} and {@link #keyHit} to false ant
+     * true respectively.
      *
      * @param e The KeyEvent that was triggered by the key press.
      */
@@ -116,6 +121,7 @@ public class KeyInput implements KeyListener {
         int keyCode = e.getKeyCode();
         if (keyCode >= 0 && keyCode < 256) {
             keyPressed[keyCode] = true;
+            lastKeyPressed = e;
             if (keyReleased[keyCode]) {
                 keyReleased[keyCode] = false;
                 keyHit[keyCode] = true;
@@ -125,8 +131,8 @@ public class KeyInput implements KeyListener {
 
     /**
      * The method that is called when a key is released. It sets the
-     * corresponding value in {@link KeyInput#keyReleased} and
-     * {@link KeyInput#keyPressed} to true and false respectively.
+     * corresponding value in {@link #keyReleased} and {@link #keyPressed} to
+     * true and false respectively.
      *
      * @param e The KeyEvent that was triggered by the key press.
      */
@@ -137,6 +143,73 @@ public class KeyInput implements KeyListener {
             keyReleased[keyCode] = true;
             keyPressed[keyCode] = false;
         }
+    }
 
+    /**
+     * Checks to see if there is currently a pressed key. Returns true if there
+     * is a pressed key, false if there isn't.
+     *
+     * @return true - If there is a pressed key.<br>false - If there is not a
+     * pressed key;
+     */
+    public boolean anyKeyPressed() {
+        for (boolean b : keyPressed) {
+            if (b) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Checks if the {@link #lastKeyPressed} has been initialized yet.
+     *
+     * @return true - If {@link #lastKeyPressed} has been initialized.<br>false
+     * - If {@link #lastKeyPressed} hasn't been initialized yet.
+     */
+    private boolean isLastKeyPressedNull() {
+        return lastKeyPressed == null;
+    }
+
+    /**
+     * Returns the {@link #lastKeyPressed} KeyEvent. If there has been no key
+     * press yet, an exception is thrown.
+     *
+     * @return KeyEvent - The last KeyEvent that was registered.
+     * @throws NullPointerException thrown if there has been no key press yet.
+     */
+    public KeyEvent getLastKeyPressed() throws NullPointerException {
+        if (!isLastKeyPressedNull()) {
+            return lastKeyPressed;
+        }
+        throw new NullPointerException("laskKeyPressed not initialized.");
+    }
+
+    /**
+     * Returns the key code of the {@link #lastKeyPressed} KeyEvent. If there
+     * has been no key press yet, an exception is thrown.
+     *
+     * @return int - The key code of the {@link #lastKeyPressed} KeyEvent.
+     * @throws NullPointerException thrown if there has been no key press yet.
+     */
+    public int getLastKeyCode() throws NullPointerException {
+        if (!isLastKeyPressedNull()) {
+            return lastKeyPressed.getKeyCode();
+        }
+        throw new NullPointerException("laskKeyPressed not initialized.");
+    }
+
+    /**
+     * Returns the key char of the {@link #lastKeyPressed} KeyEvent. If there
+     * has been no key press yet, an exception is thrown.
+     *
+     * @return char - The key char of the {@link #lastKeyPressed} KeyEvent.
+     * @throws NullPointerException thrown if there has been no key press yet.
+     */
+    public char getLastKeyChar() throws NullPointerException {
+        if (!isLastKeyPressedNull()) {
+            return lastKeyPressed.getKeyChar();
+        }
+        throw new NullPointerException("laskKeyPressed not initialized.");
     }
 }
