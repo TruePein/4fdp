@@ -84,6 +84,14 @@ public class KeyInput implements KeyListener {
         return false;
     }
 
+    /**
+     * Checks if the key corresponding to the given key code is not pressed.
+     * Will return true as long as the key is not being pressed.
+     *
+     * @param keyCode The code of the corresponding key.
+     * @return true - If the key is not being pressed.<br>false - If the key is
+     * being pressed.
+     */
     public boolean isKeyUp(int keyCode) {
         if (keyCode >= 0 && keyCode < 256) {
             return keyReleased[keyCode];
@@ -117,8 +125,8 @@ public class KeyInput implements KeyListener {
 
     /**
      * The method that is called when a key is released. It sets the
-     * corresponding value in keyReleased, keyPressed, and keyHit to
-     * true,false, and false respectively.
+     * corresponding value in {@link KeyInput#keyReleased} and
+     * {@link KeyInput#keyPressed} to true and false respectively.
      *
      * @param e The KeyEvent that was triggered by the key press.
      */
@@ -128,7 +136,6 @@ public class KeyInput implements KeyListener {
         if (keyCode >= 0 && keyCode < 256) {
             keyReleased[keyCode] = true;
             keyPressed[keyCode] = false;
-            keyHit[keyCode] = false;
         }
 
     }
