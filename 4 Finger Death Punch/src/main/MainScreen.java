@@ -5,71 +5,53 @@
  */
 package main;
 
+import java.awt.Insets;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
 import javax.swing.*;
 
 /**
  *
  * @author Eric
  */
-public class MainScreen extends JFrame implements KeyListener {
+public class MainScreen extends JFrame{
 
     public MainScreen() {
         super("4 Finger Death Punch");
-        setVisible(true);
-        setSize(400, 400);
+        wWidth = 400;
+        wHeight = 400;
+        setSize(wWidth, wHeight);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setVisible(true);
+        insets = getInsets();
+        setSize(insets.left+wWidth+insets.right, insets.top+wHeight+insets.bottom);
         add(new StartPanel(this));
 //        addKeyListener(this);
     }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
+    
+    private int fps;
+    private int wWidth;
+    private int wHeight;
+    private BufferedImage backBuffer;
+    private Insets insets;
+    private KeyInput input;
+    
+    public void run(){
+        initialize();
     }
-
-    @Override
-    public void keyPressed(KeyEvent e) {//shouldnt be implemented until actual levels
-        int keyCode = e.getKeyCode();
-        switch (keyCode) {
-            case KeyEvent.VK_UP: {
-                upPressed();
-                break;
-            }
-            case KeyEvent.VK_RIGHT: {
-                rightPressed();
-                break;
-            }
-            case KeyEvent.VK_DOWN: {
-                downPressed();
-                break;
-            }
-            case KeyEvent.VK_LEFT: {
-                leftPressed();
-                break;
-            }
-        }
+    
+    public void initialize(){
+        backBuffer = new BufferedImage(wWidth, wHeight, BufferedImage.TYPE_INT_RGB);
+        input=new KeyInput(this);
     }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
+    
+    public void update(){
+        
     }
-
-    private void upPressed() {//advance to next scren //depends on what is selected when up is pressed
-        //JOptionPane.showMessageDialog(rootPane, "Up pressed");
-        this.setVisible(false);
-    }
-
-    private void rightPressed() {//chooses next option
-        JOptionPane.showMessageDialog(rootPane, "Right pressed");
-    }
-
-    private void downPressed() {//exit
-        System.exit(0);
-    }
-
-    private void leftPressed() {//choses right option
-        JOptionPane.showMessageDialog(rootPane, "Left pressed");
+    
+    public void draw(){
+        
     }
 }
