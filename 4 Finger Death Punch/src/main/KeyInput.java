@@ -14,11 +14,6 @@ import java.awt.event.KeyListener;
 public class KeyInput implements KeyListener {
 
     /**
-     * Holds an array of all the keys that are released. When they get released,
-     * the value at the corresponding key code is set to true.
-     */
-    private boolean[] keyReleased;
-    /**
      * Holds an array of all the keys that are pressed. When a key is pressed
      * and released, the value at the corresponding key code is set to true and
      * false respectively.
@@ -45,12 +40,9 @@ public class KeyInput implements KeyListener {
      */
     public KeyInput(Component c) {
         c.addKeyListener(this);
-        keyReleased = new boolean[256];
-        for (int i = 0; i < keyReleased.length; i++) {
-            keyReleased[i] = false;
-        }
         keyPressed = new boolean[256];
         keyHit = new boolean[256];
+        lastKeyPressed = null;
     }
 
     /**
@@ -98,7 +90,7 @@ public class KeyInput implements KeyListener {
      */
     public boolean isKeyUp(int keyCode) {
         if (keyCode >= 0 && keyCode < 256) {
-            return keyReleased[keyCode];
+            return !keyPressed[keyCode];
         }
         return false;
     }
@@ -109,10 +101,10 @@ public class KeyInput implements KeyListener {
     }
 
     /**
-     * The method that is called when a key is pressed. It sets the
-     * corresponding value in {@link #keyPressed} to true, and on the first key
-     * hit, the value in {@link #keyReleased} and {@link #keyHit} to false ant
-     * true respectively.
+     * The method that is called when a key is pressed. On the first key hit, it
+     * sets the corresponding value in {@link #keyPressed} and {@link #keyHit}
+     * to true as well as setting the {@link #lastKeyPressed} parameter to the
+     * KeyEvent that is the parameter.
      *
      * @param e The KeyEvent that was triggered by the key press.
      */
@@ -120,37 +112,34 @@ public class KeyInput implements KeyListener {
     public void keyPressed(KeyEvent e) {
         int keyCode = e.getKeyCode();
         if (keyCode >= 0 && keyCode < 256) {
-            keyPressed[keyCode] = true;
-            lastKeyPressed = e;
-            if (keyReleased[keyCode]) {
-                keyReleased[keyCode] = false;
+            if (!keyPressed[keyCode]) {
+                keyPressed[keyCode] = true;
                 keyHit[keyCode] = true;
+                lastKeyPressed = e;
             }
         }
     }
 
     /**
      * The method that is called when a key is released. It sets the
-     * corresponding value in {@link #keyReleased} and {@link #keyPressed} to
-     * true and false respectively.
+     * corresponding value in {@link #keyPressed} to false.
      *
-     * @param e The KeyEvent that was triggered by the key press.
+     * @param e The KeyEvent that was triggered by the key release.
      */
     @Override
     public void keyReleased(KeyEvent e) {
         int keyCode = e.getKeyCode();
         if (keyCode >= 0 && keyCode < 256) {
-            keyReleased[keyCode] = true;
             keyPressed[keyCode] = false;
         }
     }
 
     /**
-     * Checks to see if there is currently a pressed key. Returns true if there
-     * is a pressed key, false if there isn't.
+     * Checks {@link #keyPressed} to see if there is currently a pressed key.
+     * Returns true if there is a pressed key, false if there isn't.
      *
-     * @return true - If there is a pressed key.<br>false - If there is not a
-     * pressed key;
+     * @return true - If there is a pressed key.<br>false - If no keys are
+     * pressed.
      */
     public boolean anyKeyPressed() {
         for (boolean b : keyPressed) {
