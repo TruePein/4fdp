@@ -55,7 +55,7 @@ public class KeyInput implements KeyListener {
      * @return true - On the first call of a key that has been hit.<br>false -
      * On any subsequent calls or if the hey hasn't been hit.
      */
-    public boolean isHeyHit(int keyCode) {
+    public boolean isKeyHit(int keyCode) {
         if (keyCode >= 0 && keyCode < 256) {
             if (keyHit[keyCode]) {
                 keyHit[keyCode] = false;

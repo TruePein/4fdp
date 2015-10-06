@@ -42,16 +42,16 @@ public class StartPanel extends JPanel {
     }
 
     public void update() {
-        if (input.isHeyHit(KeyEvent.VK_UP)) {
+        if (input.isKeyHit(KeyEvent.VK_UP)) {
             upPressed();
         }
-        if (input.isHeyHit(KeyEvent.VK_DOWN)) {
+        if (input.isKeyHit(KeyEvent.VK_DOWN)) {
             downPressed();
         }
-        if (input.isHeyHit(KeyEvent.VK_RIGHT)) {
+        if (input.isKeyHit(KeyEvent.VK_RIGHT)) {
             rightPressed();
         }
-        if (input.isHeyHit(KeyEvent.VK_LEFT)) {
+        if (input.isKeyHit(KeyEvent.VK_LEFT)) {
             leftPressed();
         }
     }
