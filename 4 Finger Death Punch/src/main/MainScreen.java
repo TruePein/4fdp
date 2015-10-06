@@ -5,9 +5,8 @@
  */
 package main;
 
+import java.awt.FlowLayout;
 import java.awt.Insets;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import javax.swing.*;
 
@@ -27,7 +26,12 @@ public class MainScreen extends JFrame {
         setVisible(true);
         insets = getInsets();
         setSize(insets.left + wWidth + insets.right, insets.top + wHeight + insets.bottom);
-        add(new StartPanel(this));
+        setLayout(new FlowLayout());
+        StartPanel start = new StartPanel(this);
+        start.setFocusable(true);
+        add(start);
+        start.requestFocus();
+        start.run();
 //        addKeyListener(this);
     }
     /**

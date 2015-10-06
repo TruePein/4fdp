@@ -6,69 +6,94 @@
 package main;
 
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
 import javax.swing.*;
 
 /**
  *
  * @author Eric
  */
-public class StartPanel extends JPanel implements KeyListener{
+public class StartPanel extends JPanel {
 
     private JFrame frame;
-    
+    private KeyInput input;
+    private ImageIcon image;
+    private BufferedImage backBuffer;
+    private int options;
+
     public StartPanel(JFrame f) {
         frame = f;
-        addKeyListener(this);
+
     }
 
-    
-    @Override
-    public void keyTyped(KeyEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void run() {
+        initialize();
+        while (true) {
+            update();
+        }
     }
 
-    @Override
-    public void keyPressed(KeyEvent e) {
-        switch(e.getKeyCode()){
-            case KeyEvent.VK_UP:{
-                upPressed();
+    public void initialize() {
+        input = new KeyInput(this);
+        JLabel img = new JLabel(new ImageIcon("src\\main\\resources\\images\\start screen\\test.jpg"));
+        this.add(img);
+        frame.repaint();
+        frame.pack();
+    }
+
+    public void update() {
+        if (input.isHeyHit(KeyEvent.VK_UP)) {
+            upPressed();
+        }
+        if (input.isHeyHit(KeyEvent.VK_DOWN)) {
+            downPressed();
+        }
+        if (input.isHeyHit(KeyEvent.VK_RIGHT)) {
+            rightPressed();
+        }
+        if (input.isHeyHit(KeyEvent.VK_LEFT)) {
+            leftPressed();
+        }
+    }
+
+    private void upPressed() {//advance to next scren //depends on what is selected when up is pressed
+        switch (options) {
+            case 0: {//play
+                this.removeAll();
+                frame.repaint();
                 break;
             }
-            case KeyEvent.VK_RIGHT:{
-                rightPressed();
+            case 1: {//settings
+                this.removeAll();
+                JLabel img = new JLabel(new ImageIcon("src\\main\\resources\\images\\start screen\\test.jpg"));
+                this.add(img);
+                frame.repaint();
+                frame.pack();
                 break;
             }
-            case KeyEvent.VK_DOWN:{
-                downPressed();
+            case 2: {//credits
                 break;
             }
-            case KeyEvent.VK_LEFT:{
-                leftPressed();
+            case 3: {//score?
                 break;
             }
         }
     }
 
-    @Override
-    public void keyReleased(KeyEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void rightPressed() {//chooses next option
+        if (options < 2) {
+            options++;
+        }
     }
-    
-    private void upPressed(){//advance to next scren //depends on what is selected when up is pressed
-        //JOptionPane.showMessageDialog(rootPane, "Up pressed");
-        this.setVisible(false);
-    }
-    
-    private void rightPressed(){//chooses next option
-        JOptionPane.showMessageDialog(frame.getRootPane(), "Right pressed");
-    }
-    
-    private void downPressed(){//exit
+
+    private void downPressed() {//exit
         System.exit(0);
     }
-    
-    private void leftPressed(){//choses right option
-        JOptionPane.showMessageDialog(frame.getRootPane(), "Left pressed");
+
+    private void leftPressed() {//choses right option
+        if (options > 0) {
+            options--;
+        }
     }
-    
+
 }
